@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Customer</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'Textract/css/create_customer.css' %}">
+
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-heading">Create Customer</div>
+            <!-- Form start -->
+            <form id="uploadForm" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="document-info">
+                    <img src="{% static 'Textract/images/fileicon.png' %}" alt="Document Symbol">
+                    <div>
+                        <p id="documentDescription">Please select a document type.</p>
+                    </div>
+                </div>
+                <div class="option-container">
+                    <div class="option">
+                        <input type="radio" id="idProof" name="documentOption" value="idProof">
+                        <label for="idProof">ID Proof</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="addressProof" name="documentOption" value="addressProof">
+                        <label for="addressProof">Address Proof</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="incomeProof" name="documentOption" value="incomeProof">
+                        <label for="incomeProof">Proof of Income</label>
+                    </div>
+                </div>
+                <div id="uploadSection" class="hidden">
+                    <div class="upload-heading">Upload Document</div>
+                    <div class="upload-description" id="uploadDescription"></div>
+                    <input type="file" id="documentUpload" name="document" class="upload-button" multiple>
+                    <button class="continue-button">CONTINUE</button>
+                </div>
+            </form>
+            <!-- Form end -->
+        </div>
+    </div>
+    <script src="{% static 'Textract/js/create_customer.js' %}"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1073.0.min.js"></script>
+    <script src="{% static 'Textract/js/for_aws.js' %}"></script>
+</body>
+</html>

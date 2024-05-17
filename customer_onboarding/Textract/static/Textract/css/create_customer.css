@@ -1,0 +1,90 @@
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.form-container {
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    animation: fadeInUp 1s ease;
+}
+.form-heading {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+.document-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.document-info img {
+    width: 50px;
+    margin-right: 20px;
+}
+.option-container {
+    margin-top: 20px;
+}
+.option {
+    margin-bottom: 10px;
+}
+.option label {
+    font-weight: bold;
+    color: #555;
+}
+.option input[type="radio"] {
+    margin-right: 10px;
+}
+.upload-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #007bff;
+}
+.upload-description {
+    margin-bottom: 20px;
+    color: #666;
+}
+.upload-button, .continue-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.upload-button:hover, .continue-button:hover {
+    background-color: #0056b3;
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.uploaded-image-container {
+    display: inline-block;
+    margin-right: 10px; 
+}
+
+.uploaded-image {
+    max-width: 100px; 
+    height: auto; 
+    display: block; 
+    margin-bottom: 5px; 
+}

@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Details</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS -->
+    {% comment %} <link rel="stylesheet" href="{% static 'Textract/css/style.css' %}"> {% endcomment %}
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Customer Details</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Customer</th>
+                    <th>Document</th>
+                    <th>Extracted Data</th>
+                    <th>Created At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for document in customer_documents %}
+                <tr>
+                    <td>{{ document.customer.first_name }} {{ document.customer.surname }}</td>
+                    <td><a href="{{ document.file.url }}" target="_blank">View Document</a></td>
+                    <td>
+                        {% if document.extracted_data %}
+                            {{ document.extracted_data }}
+                        {% else %}
+                            No extracted data available.
+                        {% endif %}
+                    </td>
+                    <td>{{ document.created_at }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
